@@ -1,10 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     entry: {
         main: path.join(__dirname, "src/index.js"),
-        form: path.join(__dirname, "src/form/form.js")
+        form: path.join(__dirname, "src/form/form.js"),
+        topbar: path.join(__dirname, "src/assets/js/topbar.js")
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -24,15 +27,24 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: './src/assets/img/*',
+                    to: 'assets/img/[name].[ext]'
+                },
+            ]
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, "./src/index.html"),
-            chunks: ["main"]
+            chunks: ["main", "topbar"]
         }),
         new HtmlWebpackPlugin({
             filename: 'form.html',
             template: path.join(__dirname, "./src/form/form.html"),
-            chunks: ["form"]
+            chunks: ["form", "topbar"]
         })
     ],
     stats: "minimal",
