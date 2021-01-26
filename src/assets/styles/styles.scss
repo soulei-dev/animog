@@ -4,3 +4,31 @@
 @import 'utils';
 @import 'media-queries';
 @import 'base';
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid:
+    "header" auto
+    "content" 1fr
+    "footer" auto /
+    auto
+}
+
+header {
+    grid-area: header;
+    background: orange;
+    padding: 20px;
+}
+
+.content {
+    grid-area: content;
+    // background: red;
+    padding: 20px;
+}
+
+footer {
+    grid-area: footer;
+    // background: #333;
+    padding: 20px;
+}
