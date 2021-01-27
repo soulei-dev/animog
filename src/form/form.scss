@@ -1,0 +1,44 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 700px;
+        padding: 64px;
+        box-shadow: var(--box-shadow);
+        border-radius: 3px;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            label {
+                font-size: 16px;
+                color: var(--accent);
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+            input, textarea, select {
+                border: 1px solid var(--divider);
+                padding: 16px;
+                outline-color: var(--primary);
+                border-radius: 3px;
+                &:focus {
+                    border-color: var(--accent);
+                }
+            }
+            textarea {
+                min-height: 200px;
+            }
+        }
+        .form-btn {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .btn {
+                margin-left: 5px;
+            }
+        }
+    }
+}
