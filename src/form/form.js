@@ -11,8 +11,22 @@ form.addEventListener('submit', async(event) => {
     const formData = new FormData(form);
     const article = Object.fromEntries(formData.entries());
     if (formIsValid(article)) {
+       try {
         const json = JSON.stringify(article);
-        // faire une requête ici avec fetch
+        const res = await fetch('https://restapi.fr/api/articles1', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: json
+        });
+        const body = await res.json();
+        console.log(body);
+
+
+       } catch (e) {
+        console.log('Erreur:', e);
+       }
     }
 });
 

@@ -1,0 +1,49 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .articles-container {
+        max-width: 800px;
+        width: 100%;
+        margin: 50px 0 100px 0;
+        .article {
+            background: #ffffff;
+            padding: 0 50px;
+            border-radius: 3px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+            
+            img {
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                margin-top: -30px;
+            }
+            h2 {
+                margin-top: 20px;
+                margin-bottom: 0;
+            }
+            .article-author {
+                color: var(--hint);
+                margin-bottom: 30px;
+            }
+            .article-content {
+                max-width: 550px;
+            }
+            .article-actions {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding: 20px 0;
+                border-top: 1px solid var(--divider);
+                margin-top: 20px;
+                .btn {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
