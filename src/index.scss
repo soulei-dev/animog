@@ -8,6 +8,7 @@
         margin: 50px 0 100px 0;
         .article {
             background: #ffffff;
+            margin-bottom: 50px;
             padding: 0 50px;
             border-radius: 3px;
             align-items: center;
@@ -28,10 +29,11 @@
             }
             .article-author {
                 color: var(--hint);
-                margin-bottom: 30px;
+                margin-bottom: 50px;
             }
             .article-content {
                 max-width: 550px;
+                white-space: pre-line;
             }
             .article-actions {
                 width: 100%;

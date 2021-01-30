@@ -13,7 +13,7 @@ form.addEventListener('submit', async(event) => {
     if (formIsValid(article)) {
        try {
         const json = JSON.stringify(article);
-        const res = await fetch('https://restapi.fr/api/articles1', {
+        const res = await fetch('https://restapi.fr/api/article2', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,10 +32,12 @@ form.addEventListener('submit', async(event) => {
 
 const formIsValid = (article) => {
     errors = [];
-    if (!article.author || !article.category || !article.content) {
+    if (!article.author || !article.category || !article.content || !article.img || !article.title) {
         errors.push('❌ Veuillez renseigner tous les champs !');
     }
-    // ajouter une condition ici afin d'éviter l'envoie d'un contenu trop court - si le contenu est trop court, push un message d'erreur.
+    if (article.content.length < 20) {
+        errors.push('❌ Le contenu de l\'article est trop court !');
+    }
     if (errors.length) {
         let errorHTML = '';
         errors.forEach((e) => {
