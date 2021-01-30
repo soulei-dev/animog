@@ -18,23 +18,23 @@
 header {
     grid-area: header;
     background: var(--dark);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     a {
         color: #ffffff;
-    }
-    .header-logo {
-        font-size: 35px;
-        font-weight: 700;
+        .header-logo {
+            width: 150px;
+            height: auto;
+        }
     }
     ul {
         display: flex;
         li {
             .header-nav {
-                font-size: 14px;
+                font-size: 18px;
                 padding: 0 10px;
             }
             .active {
