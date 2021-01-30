@@ -38,7 +38,7 @@ const createArticles = (articles) => {
             const res = await fetch(`https://restapi.fr/api/article2/${articleId}`, {
                 method: 'DELETE'
             })
-            const body = await res.json();
+            // const body = await res.json();
             getArticle();
           } catch (e) {
               console.log('Erreur:', e);

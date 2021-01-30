@@ -3,11 +3,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+
 module.exports = {
     entry: {
         main: path.join(__dirname, "src/index.js"),
         form: path.join(__dirname, "src/form/form.js"),
-        topbar: path.join(__dirname, "src/assets/js/topbar.js")
+        topbar: path.join(__dirname, "src/assets/js/topbar.js"),
+        file: path.join(__dirname, "src")
     },
     output: {
         path: path.join(__dirname, "dist"),
@@ -23,7 +25,15 @@ module.exports = {
             {
                 test: /\.scss$/i,
                 use: ["style-loader", "css-loader", "sass-loader"]
-            }
+            },
+            {
+                test: /\.(png|jpg)$/i,
+                use: [
+                    {
+                      loader: 'file-loader',
+                    },
+                  ],
+            },
         ]
     },
     plugins: [

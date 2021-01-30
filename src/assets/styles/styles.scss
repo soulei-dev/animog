@@ -46,9 +46,14 @@ header {
 
 .content {
     grid-area: content;
-    // background: red;
     padding: 20px;
-    background: var(--divider);
+    // background: var(--divider);
+    background: url('../../assets/img/bg-animog.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
 }
 
 footer {
