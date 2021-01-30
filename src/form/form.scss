@@ -6,8 +6,9 @@
         background: #ffffff;
         display: flex;
         flex-direction: column;
-        width: 700px;
-        padding: 64px;
+        max-width: 700px;
+        width: 100%;
+        padding: 42px;
         box-shadow: var(--box-shadow);
         border-radius: 3px;
         .form-group {
@@ -39,6 +40,7 @@
             align-items: center;
             .btn {
                 margin-left: 5px;
+                outline: none;
             }
         }
     }

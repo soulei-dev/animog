@@ -1,3 +1,5 @@
+@import 'assets/styles/media-queries';
+
 .content {
     display: flex;
     justify-content: center;
@@ -10,6 +12,9 @@
             background: #ffffff;
             margin-bottom: 50px;
             padding: 0 50px;
+            @include xs {
+                padding: 0 16px;
+            }
             border-radius: 3px;
             align-items: center;
             display: flex;
@@ -44,6 +49,7 @@
                 margin-top: 20px;
                 .btn {
                     margin-left: 10px;
+                    outline: none;
                 }
             }
         }
