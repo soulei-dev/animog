@@ -17,7 +17,9 @@
 
 header {
   grid-area: header;
-  background: var(--dark);
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.0);
   padding: 10px;
   display: flex;
   flex-flow: row nowrap;
@@ -41,6 +43,12 @@ header {
         .header-nav {
           font-size: 18px;
           padding: 0 10px;
+          transition: 0.5s all;
+        }
+        .header-nav:hover {
+          background-color: red;
+          color: black;
+          border-radius: 5px;
         }
         .active {
           font-weight: 800;
@@ -90,12 +98,13 @@ header {
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
+  height: auto;
 }
 
 footer {
   grid-area: footer;
-  background: var(--dark-grey);
-  padding: 20px;
+  background-color: #262626;
+  padding: 5px;
   font-size: 14px;
   text-align: center;
   color: #ffffff;
