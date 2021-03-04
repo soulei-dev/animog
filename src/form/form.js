@@ -12,13 +12,13 @@ const fillForm = (article) => {
   const img = document.querySelector('input[name="img"]');
   const category = document.querySelector('input[name="category"]');
   const title = document.querySelector('input[name="title"]');
-  const content = document.querySelector('textarea');
-  author.value = article.author || '';
-  img.value = article.img || '';
-  category.value = article.category || '';
-  title.value = article.title || '';
-  content.value = article.content || '';
-}
+  const content = document.querySelector("textarea");
+  author.value = article.author || "";
+  img.value = article.img || "";
+  category.value = article.category || "";
+  title.value = article.title || "";
+  content.value = article.content || "";
+};
 
 const initForm = async () => {
   const params = new URL(location.href);
@@ -32,7 +32,7 @@ const initForm = async () => {
       console.log(article);
     }
   }
-}
+};
 
 initForm();
 
@@ -52,24 +52,24 @@ form.addEventListener("submit", async (event) => {
         res = await fetch(`https://restapi.fr/api/article2/${articleId}`, {
           method: "PATCH",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          body: json
+          body: json,
         });
       } else {
         res = await fetch(`https://restapi.fr/api/article2`, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          body: json
-        })
+          body: json,
+        });
       }
       if (res.status < 300) {
-        location.assign('/index.html');
+        location.assign("/index.html");
       }
     } catch (e) {
-      console.log('Erreur:', e);
+      console.log("Erreur:", e);
     }
   }
 });

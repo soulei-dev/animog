@@ -19,25 +19,28 @@ header {
   grid-area: header;
   position: absolute;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0);
   padding: 10px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   a {
-    color: #ffffff;
+    color: white;
+    font-weight: bold;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
+      #000000 1px -1px;
     .header-logo {
       width: 150px;
       height: auto;
     }
   }
   .header-menu {
-      position: relative;
+    position: relative;
     ul {
       @include xs {
-          display: none;
-      }  
+        display: none;
+      }
       display: flex;
       li {
         .header-nav {
@@ -52,38 +55,41 @@ header {
         }
         .active {
           font-weight: 800;
+          color: var(--dark);
+          text-shadow: #000 1px 1px, #000 -1px 1px, #000 -1px -1px,
+          #000 1px -1px;
         }
       }
     }
     .header-menu-icon {
-        display: none;
-        font-size: 38px;
-        color: #ffffff;
-        @include xs {
-            display: block;
-        }
+      display: none;
+      font-size: 38px;
+      color: #ffffff;
+      @include xs {
+        display: block;
+      }
     }
     .mobile-menu {
-        display: none;
-        position: absolute;
-        box-shadow: var(--box-shadow);
-        top: 90px;
-        right: 20px;
-        padding: 48px 24px;
-        width: 200px;
-        background: #ffffff;
-        ul {
-            display: block;
-            li {
-                margin: 24px 0;
-                a {
-                    color: var(--text);
-                }
-            }
+      display: none;
+      position: absolute;
+      box-shadow: var(--box-shadow);
+      top: 90px;
+      right: 20px;
+      padding: 48px 24px;
+      width: 200px;
+      background: #ffffff;
+      ul {
+        display: block;
+        li {
+          margin: 24px 0;
+          a {
+            color: var(--text);
+          }
         }
+      }
     }
     .mobile-menu.open {
-        display: block;
+      display: block;
     }
   }
 }
