@@ -49,9 +49,7 @@ header {
           transition: 0.5s all;
         }
         .header-nav:hover {
-          background-color: red;
-          color: black;
-          border-radius: 5px;
+          color: var(--dark);
         }
         .active {
           font-weight: 800;
