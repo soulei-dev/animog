@@ -4,7 +4,37 @@ import "./form.scss";
 const form = document.querySelector("form");
 const errorElement = document.querySelector("#errors");
 const buttonCancel = document.querySelector(".btn-secondary");
+let articleId;
 let errors = [];
+
+const fillForm = (article) => {
+  const author = document.querySelector('input[name="author"]');
+  const img = document.querySelector('input[name="img"]');
+  const category = document.querySelector('input[name="category"]');
+  const title = document.querySelector('input[name="title"]');
+  const content = document.querySelector('textarea');
+  author.value = article.author || '';
+  img.value = article.img || '';
+  category.value = article.category || '';
+  title.value = article.title || '';
+  content.value = article.content || '';
+}
+
+const initForm = async () => {
+  const params = new URL(location.href);
+  articleId = params.searchParams.get("id");
+
+  if (articleId) {
+    const res = await fetch(`https://restapi.fr/api/article2/${articleId}`);
+    if (res.status < 300) {
+      const article = await res.json();
+      fillForm(article);
+      console.log(article);
+    }
+  }
+}
+
+initForm();
 
 buttonCancel.addEventListener("click", () => {
   location.assign("/index.html");
@@ -17,18 +47,29 @@ form.addEventListener("submit", async (event) => {
   if (formIsValid(article)) {
     try {
       const json = JSON.stringify(article);
-      const res = await fetch("https://restapi.fr/api/article2", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: json,
-      });
-      if (res.status < 299) {
-        location.assign("/index.html");
+      let res;
+      if (articleId) {
+        res = await fetch(`https://restapi.fr/api/article2/${articleId}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: json
+        });
+      } else {
+        res = await fetch(`https://restapi.fr/api/article2`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: json
+        })
+      }
+      if (res.status < 300) {
+        location.assign('/index.html');
       }
     } catch (e) {
-      console.log("Erreur:", e);
+      console.log('Erreur:', e);
     }
   }
 });

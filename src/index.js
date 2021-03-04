@@ -1,8 +1,6 @@
 import "./assets/styles/styles.scss";
 import "./index.scss";
 
-console.log("index ok");
-
 const articlesContainer = document.querySelector(".articles-container");
 
 const createArticles = (articles) => {
@@ -28,6 +26,7 @@ const createArticles = (articles) => {
       </p>
       <div class="article-actions">
         <button class="btn btn-danger" data-id=${article._id}>Supprimer</button>
+        <button class="btn btn-primary" data-id=${article._id}>Modifier</button>
       </div>
       </div>    
               
@@ -37,6 +36,14 @@ const createArticles = (articles) => {
   articlesContainer.innerHTML = "";
   articlesContainer.append(...articlesDOM);
   const deleteButtons = articlesContainer.querySelectorAll(".btn-danger");
+  const editButtons = articlesContainer.querySelectorAll('.btn-primary');
+  editButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      const target = event.target;
+      const articleId = target.dataset.id;
+      location.assign(`/form.html?id=${articleId}`);
+    })
+  })
   deleteButtons.forEach((button) => {
     button.addEventListener("click", async (event) => {
       try {
